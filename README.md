@@ -2,7 +2,7 @@
 Using DCGAN to generate flowers that has never been sean before in data.
 
 ## Data
-This project leverages the [ (https://www.robots.ox.ac.uk/~vgg/data/flowers/102/)](102 Flowers Dataset). The dataset was prepared by manually selecting images that contain only one flower facing upwards. Images were cropped to a square shape, centered around the flower so that the center of the flower aligns with the center of the image, and resized to a resolution of 128x128 pixels. This approach ensured better results as the model could focus on the flower's shape and characteristics rather than background distractions or multiple flowers in a frame.
+This project leverages the [https://www.robots.ox.ac.uk/~vgg/data/flowers/102/](102 Flowers Dataset). The dataset was prepared by manually selecting images that contain only one flower facing upwards. Images were cropped to a square shape, centered around the flower so that the center of the flower aligns with the center of the image, and resized to a resolution of 128x128 pixels. This approach ensured better results as the model could focus on the flower's shape and characteristics rather than background distractions or multiple flowers in a frame.
 
 ## Model
 The model used is DCGAN, as depicted in the picture below.
