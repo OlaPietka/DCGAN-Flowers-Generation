@@ -6,7 +6,7 @@ This project leverages the [102 Flowers Dataset](https://www.robots.ox.ac.uk/~vg
 
 ## Model
 The model used is DCGAN, with generator and discriminator architectures depicted below.
-![](https://github.com/OlaPietka/DCGAN-Flowers-Generation/blob/main/generator_architecture.png?raw=true)
+![](https://github.com/OlaPietka/DCGAN-Flowers-Generation/blob/main/data/generator_architecture.png?raw=true)
 
 
 ### Partamters
