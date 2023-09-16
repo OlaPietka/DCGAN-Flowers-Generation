@@ -6,8 +6,12 @@ This project leverages the [102 Flowers Dataset](https://www.robots.ox.ac.uk/~vg
 
 ## Model
 The model used is DCGAN, with generator and discriminator architectures depicted below.
-![](https://github.com/OlaPietka/DCGAN-Flowers-Generation/blob/main/data/generator_architecture.png?raw=true)
 
+### Generator
+![](https://github.com/OlaPietka/DCGAN-Flowers-Generation/blob/main/data/generator_architecture.png)
+
+### Discriminator
+![](https://github.com/OlaPietka/DCGAN-Flowers-Generation/blob/main/data/discriminator_architecture.png)
 
 ### Partamters
 The criterion for training is BCELoss because it is effective for binary classification tasks inherent to the discriminator in GANs. The model was trained for 500 epochs with a batch size of 128. Both the generator and the discriminator had a learning rate set to 0.0005. The latent space has a size of 300. To optimize performance, a learning rate scheduler was employed, reducing the learning rate by 0.9 every 50 epochs.
