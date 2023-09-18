@@ -16,7 +16,7 @@ The model used is DCGAN, with generator and discriminator architectures depicted
 ![](https://github.com/OlaPietka/DCGAN-Flowers-Generation/blob/main/data/discriminator_architecture.png)
 
 ### Partamters
-The criterion for training is BCELoss because it is effective for binary classification tasks inherent to the discriminator in GANs. The model was trained for 500 epochs with a batch size of 128. Both the generator and the discriminator had a learning rate set to 0.0005. The latent space has a size of 300. To optimize performance, a learning rate scheduler was employed, reducing the learning rate by 0.9 every 50 epochs.
+The criterion for training is BCELoss because it is effective for binary classification tasks inherent to the discriminator in GANs. The model was trained for 1000 epochs with a batch size of 128. Both the generator and the discriminator had a learning rate set to 0.0005. The latent space has a size of 300. To optimize performance, a learning rate scheduler was employed, reducing the learning rate by 0.9 every 50 epochs.
 
 ## Chanllenges
 Finding the right images did limit the final dataset size. To counteract this, some data augmentation techniques were applied.
