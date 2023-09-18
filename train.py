@@ -1,4 +1,5 @@
 import torch
+from matplotlib import pyplot as plt
 from torch import Tensor
 from torch.nn import Module
 from torch.optim import Optimizer
@@ -24,7 +25,7 @@ class DCGAN:
 			fixed_noise: Tensor,
 			g_scheduler: StepLR,
 			d_scheduler: StepLR,
-			device: str ="cuda",
+			device: str = "cuda",
 	):
 		self.G = generator
 		self.D = discriminator
@@ -84,11 +85,22 @@ class DCGAN:
 		print(f"[epoch {epoch}, step {current_step}]: g_loss = {G_mean:.8f}, d_loss = {D_mean:.8f}")
 
 		fake = self.G(self.fixed_noise)
-		save_tensor_images(fake.detach(), save_dir + f"{current_step}.jpg")
+		save_tensor_images(fake.detach(), save_dir + f"steps/{current_step}.jpg")
 
-	def _save(self, save_dir: str) -> None:
-		torch.save(self.G.state_dict(), save_dir + "generator.pt")
-		torch.save(self.D.state_dict(), save_dir + "discriminator.pt")
+	def _save_learning_plot(self, save_path: str) -> None:
+		plt.figure(figsize=(10, 5))
+		plt.title("Generator and Discriminator Loss During Training")
+		plt.plot(self.G_losses, label="G")
+		plt.plot(self.D_losses, label="D")
+		plt.xlabel("iterations")
+		plt.ylabel("Loss")
+		plt.legend()
+		plt.savefig(save_path + "utils/plot.png")
+		plt.show()
+
+	def _save_models(self, save_dir: str) -> None:
+		torch.save(self.G.state_dict(), save_dir + "models/generator.pt")
+		torch.save(self.D.state_dict(), save_dir + "models/discriminator.pt")
 
 	def train(self, save_dir: str, display_step: int = 100) -> None:
 		current_step = 0
@@ -109,4 +121,5 @@ class DCGAN:
 
 			self._update_schedulers()
 
-		self._save(save_dir)
+		self._save_models(save_dir)
+		self._save_learning_plot(save_dir)

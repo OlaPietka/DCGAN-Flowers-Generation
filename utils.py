@@ -1,4 +1,7 @@
+import os
+
 import torch
+from PIL import Image
 from torch import Tensor, nn
 from torch.nn import Module
 from torchvision.utils import make_grid, save_image
@@ -29,3 +32,14 @@ def weights_init(m: Module) -> None:
     if isinstance(m, nn.BatchNorm2d):
         nn.init.normal_(m.weight, 0.0, 0.02)
         nn.init.constant_(m.bias, 0)
+
+
+def make_gif(imgs_dir: str, save_path: str) -> None:
+    """
+    Function for creating gif from images.
+    """
+    imgs = os.listdir(path=imgs_dir)
+    imgs.sort(key=lambda f: int(f.split(".")[0]))
+
+    frames = [Image.open(imgs_dir + img) for img in imgs]
+    frames[0].save(save_path + "learning.gif", format="GIF", append_images=frames, save_all=True, duration=100, loop=0)
