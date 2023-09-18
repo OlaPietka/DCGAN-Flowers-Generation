@@ -1,6 +1,8 @@
 # DCGAN-Flowers-Generation
 Using DCGAN to generate flowers that has never been sean before in data.
 
+![](https://github.com/OlaPietka/DCGAN-Flowers-Generation/blob/main/data/garden.png)
+
 ## Data
 This project leverages the [102 Flowers Dataset](https://www.robots.ox.ac.uk/~vgg/data/flowers/102/). The dataset was prepared by manually selecting images that contain only one flower facing upwards. Images were cropped to a square shape, centered around the flower so that the center of the flower aligns with the center of the image, and resized to a resolution of 128x128 pixels. This approach ensured better results as the model could focus on the flower's shape and characteristics rather than background distractions or multiple flowers in a frame.
 
